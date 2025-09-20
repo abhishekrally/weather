@@ -1,3 +1,5 @@
+// src/SearchEngine.js
+
 import React from "react";
 
 function SearchEngine({ query, setQuery, search }) {

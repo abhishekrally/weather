@@ -14,7 +14,6 @@ A modern, responsive weather application that provides real-time weather data an
 
 ## 🚀 Live Demo
 
-Check out the live application: [Weather Forecasting App](https://abhishekrally.github.io/weather/)
 
 ## 🛠️ Technologies Used
 

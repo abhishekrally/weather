@@ -1,3 +1,5 @@
+// src/App.js
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchEngine from "./SearchEngine";
@@ -14,44 +16,12 @@ function App() {
     error: false,
   });
 
-  const toDate = () => {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-
-    const currentDate = new Date();
-    const date = `${days[currentDate.getDay()]} ${currentDate.getDate()} ${
-      months[currentDate.getMonth()]
-    }`;
-    return date;
-  };
-
   const search = async (event) => {
     event.preventDefault();
     if (event.type === "click" || (event.type === "keypress" && event.key === "Enter")) {
       setWeather({ ...weather, loading: true });
       const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-      const url = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=metric`;
 
       try {
         const res = await axios.get(url);
@@ -66,7 +36,8 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-      const url = `https://api.shecodes.io/weather/v1/current?query=Rabat&key=${apiKey}`;
+      const defaultCity = process.env.REACT_APP_DEFAULT_CITY; 
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=metric`;
 
       try {
         const response = await axios.get(url);
@@ -76,13 +47,11 @@ function App() {
         console.error("Error fetching initial weather data:", error);
       }
     };
-
     fetchData();
   }, []);
 
   return (
     <div className="App">
-      {/* SearchEngine component */}
       <SearchEngine query={query} setQuery={setQuery} search={search} />
 
       {weather.loading && (
@@ -105,9 +74,8 @@ function App() {
         </>
       )}
 
-      {weather && weather.data && weather.data.condition && (
-        // Forecast component
-        <Forecast weather={weather} toDate={toDate} />
+      {weather && weather.data && weather.data.main && (
+        <Forecast weather={weather} />
       )}
     </div>
   );
