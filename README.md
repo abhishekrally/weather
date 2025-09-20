@@ -14,6 +14,7 @@ A modern, responsive weather application that provides real-time weather data an
 
 ## 🚀 Live Demo
 
+ deployed here:- https://weather-lyart-zeta.vercel.app/
 
 ## 🛠️ Technologies Used
 
