@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Weather Card -->
+        <div class="weather-card">
+            <div class="location">
+                <input type="text" class="search-box" placeholder="Search location...">
+                <button class="search-btn">
+                    <img src="search-icon.png" alt="Search" >
+                </button>
+            </div>
+            <div class="weather-main">
+                <img class="weather-icon" src="//cdn.weatherapi.com/weather/64x64/night/143.png" alt="Weather">
+                <h2 class="temperature">31°C</h2>
+                <p class="description">Mostly Cloudy</p>
+            </div>
+            <div class="date-time">
+                <h3>Date & Time</h3>
+                <p id="date">21 July 2023</p>
+                <p id="time">Friday, 12:44 PM</p>
+                <p id="Day">Day</p>
+            </div>
+            <p class="city">Dhaka</p>
+        </div>
+
+        <!-- Right Weather Details -->
+        <div class="weather-details">
+            <div class="detail-box">
+                <p>Wind</p>
+                <h2 id="wspeed">6 km/h</h2>
+                <p id="wdirection">East</p>
+            </div>
+            <div class="detail-box">
+                <p>Humidity</p>
+                <h2 id="Humidity">69%</h2>
+            </div>
+            <div class="detail-box">
+                <p>Real Feel</p>
+                <h2 id="temp-feel">31°C</h2>
+            </div>
+            <div class="detail-box">
+                <p>UV Index</p>
+                <h2 id="uv">3</h2>
+                <p>Moderate</p>
+            </div>
+            <div class="detail-box">
+                <p>Pressure</p>
+                <h2 id="pressure">1000 mb</h2>
+            </div>
+            <div class="detail-box">
+                <p>Cloud Cover</p>
+                <h2 id="Cloud-cover">70%</h2>
+            </div>
+        </div>
+    </div>
+    <script src="code.js"></script>
+</body>
+</html>
